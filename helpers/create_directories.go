@@ -1,27 +1,28 @@
 package helpers
 
 import (
-	"log"
+	"fmt"
 	"os"
 )
 
-func createDir(feature string) {
-	
+func CreateDir(feature string) error {
+
 	folders := []string{
-		feature+"/domain/usecases",
-		feature+"/domain/entities",
-		feature+"/domain/repositories",
-		feature+"/data/repositories",
-		feature+"/data/models",
-		feature+"/data/datasources",
-		feature+"/presentation/pages",
-		feature+"/presentation/blocs",
+		fmt.Sprintf("%s/data/repositories", feature),
+		fmt.Sprintf("%s/data/models", feature),
+		fmt.Sprintf("%s/data/datasources", feature),
+		fmt.Sprintf("%s/domain/usecases", feature),
+		fmt.Sprintf("%s/domain/entities", feature),
+		fmt.Sprintf("%s/domain/repositories", feature),
+		fmt.Sprintf("%s/presentation/pages", feature),
+		fmt.Sprintf("%s/presentation/blocs", feature),
 	}
 
 	for _, folder := range folders {
 		err := os.MkdirAll(folder, 0755)
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 	}
+	return nil
 }

@@ -1,6 +1,5 @@
 /*
 Copyright © 2023 DOMINICK Randriamanantena Grégoire dominick.randriamanantena@gmail.com
-
 */
 package cmd
 
@@ -10,13 +9,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
-
-
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "cleancode",
 	Short: "Bonnes pratiques de codage",
-	Long: `Clean code generator est un outil qui permet de générer des squelettes de code`,
+	Long:  `Clean code generator est un outil qui permet de générer des squelettes de code`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
@@ -42,5 +39,3 @@ func init() {
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
-
-
