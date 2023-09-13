@@ -1,20 +1,20 @@
 package helpers
 
 import (
-	"fmt"
-	"os"
+	data "cleancode/code_templates/data"
+
+	domain "cleancode/code_templates/domain"
+
+	"github.com/fatih/color"
 )
 
-func CreateFile(feature string, file string, content string) error {
-	f, err := os.Create(fmt.Sprintf("%s/%s", feature, file))
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	_, err = f.WriteString(content)
-	if err != nil {
-		return err
-	}
-	return nil
+func CreateAllFiles(feature string) {
+	data.CreateDataRepository(feature)
+	color.Yellow("+ File %s_repository.dart created successfully...", feature)
+	data.CreateDataModel(feature)
+	color.Yellow("+ File %s_model.dart created successfully...", feature)
+	domain.CreateDomainEntity(feature)
+	color.Yellow("+ File %s_entity.dart created successfully...", feature)
+	domain.CreateDomainUsecase(feature)
+	color.Yellow("+ File %s_usecase.dart created successfully...", feature)
 }

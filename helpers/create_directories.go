@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func CreateDir(feature string) error {
+func CreateAllDirs(feature string) error {
 
 	folders := []string{
 		fmt.Sprintf("%s/data/repositories", feature),

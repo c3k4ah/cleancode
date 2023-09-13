@@ -13,7 +13,7 @@ func CreateDomainEntity(featureName string) {
 
 	entityContent := fmt.Sprintf(code.EntityTemplate, lowerFeatureName, featureName, featureName, featureName, featureName, featureName, featureName, featureName, lowerFeatureName, featureName, featureName, lowerFeatureName, featureName)
 
-	file, err := os.Create(fmt.Sprintf("%s_entity.dart", lowerFeatureName))
+	file, err := os.Create(fmt.Sprintf("%s/domain/entities/%s_entity.dart", featureName, lowerFeatureName))
 	if err != nil {
 		log.Fatal("Cannot create file", err)
 	}

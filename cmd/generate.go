@@ -5,8 +5,8 @@ package cmd
 
 import (
 	"cleancode/helpers"
-	"fmt"
 
+	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
 
@@ -17,8 +17,11 @@ var generateCmd = &cobra.Command{
 	Args:  cobra.MinimumNArgs(1),
 
 	Run: func(cmd *cobra.Command, args []string) {
-		helpers.CreateDir(args[0])
-		fmt.Println("Scaffold generated successfully")
+		helpers.CreateAllDirs(args[0])
+		color.Blue(" All directories created successfully")
+		helpers.CreateAllFiles(args[0])
+		color.Blue(" All files created successfully")
+		color.Green(" Scaffold generated successfully")
 	},
 }
 

@@ -13,7 +13,7 @@ func CreateDomainUsecase(featureName string) {
 
 	usecaseContent := fmt.Sprintf(code.UsecaseTemplate, lowerFeatureName, featureName, featureName, featureName, featureName, featureName, featureName, featureName, lowerFeatureName, featureName, featureName, lowerFeatureName, featureName)
 
-	file, err := os.Create(fmt.Sprintf("%s_usecase.dart", lowerFeatureName))
+	file, err := os.Create(fmt.Sprintf("%s/domain/usecases/%s_usecase.dart", featureName, lowerFeatureName))
 	if err != nil {
 		log.Fatal("Cannot create file", err)
 	}
